@@ -73,10 +73,9 @@ module.exports = function (configFactory) {
 
 
     var moduleName = requestPayload.resource + '/' + requestPayload.httpMethod.toUpperCase();
-    console.log(moduleName)
 
     try {
-      var module = require('./' + _config.methodsBaseDir + moduleName);
+      var middleware = require(require('path').dirname(module.parent.filename) + '/' + _config.methodsBaseDir + moduleName);
     }
     catch (error) {
 
@@ -92,7 +91,7 @@ module.exports = function (configFactory) {
       return;
     }
 
-    module(requestPayload).then(function (response) {
+    middleware(requestPayload).then(function (response) {
 
       output = _config.response(response);
 
