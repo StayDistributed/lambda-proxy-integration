@@ -23,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/StayDistributed/lambda-proxy-integration/issues"
   },
-  "homepage": "https://github.com/StayDistributed/lambda-proxy-integration#readme"
+  "homepage": "https://github.com/StayDistributed/lambda-proxy-integration#readme",
+  "dependencies": {
+    "amazon-api-gateway-querystring": "^1.0.4"
+  }
 }
