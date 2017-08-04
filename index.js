@@ -55,7 +55,7 @@ module.exports = function (configFactory) {
                       }
 
                     },
-                    configFactory({requestPayload})
+                    configFactory({requestPayload, event, context})
                   );
 
 
