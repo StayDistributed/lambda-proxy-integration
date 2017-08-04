@@ -12,6 +12,8 @@ will map to:
 Inside your file you have to export a Promise:
 
 ```javascript
+// File: /resources/user/friendlist/GET.js
+
 module.exports = function (requestPayload) {
 
   return new Promise(function (resolve, reject) {
@@ -32,8 +34,11 @@ module.exports = function (requestPayload) {
 
 ```
 
+In the root of lambda function, you export the integration created like this:
 
 ```javascript
+// File: /index.js
+
 var createIntegration = require('lambda-proxy-integration');
 
 const lambdaProxyIntegration = createIntegration(function ({ requestPayload }) {
