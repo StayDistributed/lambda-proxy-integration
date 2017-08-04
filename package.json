@@ -1,6 +1,6 @@
 {
   "name": "lambda-proxy-integration",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "AWS API Gateway Lambda Proxy Integration middleware",
   "main": "index.js",
   "scripts": {
