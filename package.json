@@ -1,0 +1,27 @@
+{
+  "name": "lambda-proxy-integration",
+  "version": "1.0.0",
+  "description": "AWS API Gateway Lambda Proxy Integration middleware",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/StayDistributed/lambda-proxy-integration.git"
+  },
+  "keywords": [
+    "aws",
+    "api",
+    "gateway",
+    "lambda",
+    "proxy",
+    "integration"
+  ],
+  "author": "Michele Salvini",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/StayDistributed/lambda-proxy-integration/issues"
+  },
+  "homepage": "https://github.com/StayDistributed/lambda-proxy-integration#readme"
+}
