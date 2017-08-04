@@ -79,10 +79,7 @@ module.exports = function (configFactory) {
     }
     catch (error) {
 
-      output = _config.error({
-        code: 403,
-        message: "The resource path doesn\'t exists"
-      });
+      output = _config.error(error);
 
       if (output.body)
         output.body = JSON.stringify(output.body);
