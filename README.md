@@ -19,12 +19,15 @@ module.exports = function (requestPayload) {
   return new Promise(function (resolve, reject) {
   
     if (/*some errors*/) {
+
+      // the params of "reject" will be passed to the error function
       return reject({
         code: 500,
         message: 'Server error'
       });
     }
 
+    // the params of "resolve" will be passed to the response function
     resolve({
       success: true
     });
@@ -51,6 +54,7 @@ const lambdaProxyIntegration = createIntegration(function ({ requestPayload }) {
             "Access-Control-Allow-Headers": "Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token"
           },
 
+          // "response" params comes from resolve params
           response: function (response) {
             var body = {};
 
@@ -59,6 +63,7 @@ const lambdaProxyIntegration = createIntegration(function ({ requestPayload }) {
             };
           },
 
+          // "error" params comes from reject params
           error: function (error) {
             return {
               statusCode: error.code || 500,
