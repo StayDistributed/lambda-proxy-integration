@@ -37,6 +37,9 @@ module.exports = function (configFactory) {
                       // parse event.body looking for JSON structure
                       parseBody: true,
 
+                      // Response Headers
+                      headers: {},
+
                       // function called with response that returns the output object
                       response: function (response) {
                         return {
@@ -80,9 +83,11 @@ module.exports = function (configFactory) {
     catch (error) {
 
       output = _config.error(error);
+      output.headers = Object.assign(_config.headers, output.headers);
 
       if (output.body)
         output.body = JSON.stringify(output.body);
+
       callback(null, output);
 
       return;
@@ -91,17 +96,21 @@ module.exports = function (configFactory) {
     middleware(requestPayload).then(function (response) {
 
       output = _config.response(response);
+      output.headers = Object.assign(_config.headers, output.headers);
 
       if (output.body)
         output.body = JSON.stringify(output.body);
+
       callback(null, output);
 
     }).catch(function (error) {
 
       output = _config.error(error);
+      output.headers = Object.assign(_config.headers, output.headers);
 
       if (output.body)
         output.body = JSON.stringify(output.body);
+
       callback(null, output);
 
     });
